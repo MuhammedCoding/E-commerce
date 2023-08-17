@@ -3,10 +3,6 @@
 <div>
     <app-category-slider id="categories" class="pb-5"></app-category-slider>
     <app-brand-slider id="brands" class="p-5"></app-brand-slider>
-
-
-
-
     <section id="procducts" class="py-5">
         <div class="search-products">
             <input [(ngModel)]="searchTerm" type="text" placeholder="Search for products ..."
@@ -16,7 +12,7 @@
             <h5 class="h6 featured-header">
                 Take a look at our featured Products !
             </h5>
-            <div class=" col-sm-6 col-md-4 col-lg-3 product-card "
+            <div class=" col-sm-6 col-md-4 col-lg-3  product-card "
                 *ngFor=" let product of productsArray | search:searchTerm " @fadeRight>
                 <app-product-card [product]="product"></app-product-card>
             </div>
@@ -25,10 +21,10 @@
 
     <section id="about" class="py-5">
         <div class="row gx-3">
-            <div class="col-md-4">
-                <div class="item py-4 px-3 rounded-2 h-100">
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <div class="item py-4 px-3 rounded-2 h-100 d-flex">
                     <div class="container item-wrapper ">
-                        <div class="row align-items-center">
+                        <div class="row align-items-center justify-content-between">
                             <div class="col-8">
                                 <div class="caption">
                                     <p class="fw-bolder mb-2 text-main">A community is doing Good</p>
@@ -36,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="item-img">
+                                <div class="item-img ms-auto">
                                     <img src="../../../../assets/images/unsplash_bU8TeXhsPcY.png" alt="">
                                 </div>
                             </div>
@@ -44,10 +40,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="item py-4 px-3 rounded-2 h-100">
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <div class="item py-4 px-3 rounded-2 h-100 d-flex">
                     <div class="container item-wrapper">
-                        <div class="row align-items-center">
+                        <div class="row align-items-center justify-content-between">
                             <div class="col-8">
                                 <div class="caption">
                                     <p class="fw-bolder mb-2 text-main">Peace
@@ -56,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="item-img">
+                                <div class="item-img ms-auto">
                                     <img src="../../../../assets/images/unsplash_esRJtEsvJhU.png" alt="">
                                 </div>
                             </div>
@@ -64,10 +60,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="item py-4 px-3 rounded-2 h-100">
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <div class="item py-4 px-3 rounded-2 h-100 d-flex">
                     <div class="container item-wrapper">
-                        <div class="row align-items-center">
+                        <div class="row align-items-center justify-content-between">
                             <div class="col-8">
                                 <div class="caption">
                                     <p class="fw-bolder mb-2 text-main">Support independent
@@ -76,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="item-img">
+                                <div class="item-img ms-auto">
                                     <img src="../../../../assets/images/unsplash_m_7p45JfXQo.png" alt="">
                                 </div>
                             </div>

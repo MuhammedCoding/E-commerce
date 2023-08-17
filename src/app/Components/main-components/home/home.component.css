@@ -7,8 +7,8 @@
   width: fit-content;
 }
 .item-img img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 .item {
   background-color: #f5f6f8;
@@ -16,4 +16,11 @@
 
 .item-wrapper {
   flex: 1 1 auto;
+}
+
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  .item-img img {
+    width: 70px;
+    height: 70px;
+  }
 }

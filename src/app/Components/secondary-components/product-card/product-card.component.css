@@ -43,3 +43,10 @@
 .wishlist-icon i {
   font-size: 0.75rem;
 }
+
+@media (max-width: 576px) {
+  .product:hover {
+    transform: none;
+    border: 1px solid var(--main-color);
+  }
+}
