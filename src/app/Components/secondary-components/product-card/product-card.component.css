@@ -1,0 +1,45 @@
+.card-body {
+  flex: 1 1 auto;
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.34);
+  border: solid 2px var(--main-color);
+}
+
+.product {
+  transition: all 0.3s;
+}
+
+.category-name {
+  font-size: 0.875rem;
+}
+
+.brand-image {
+  width: 70px;
+}
+
+.brand-image img {
+  object-fit: cover;
+}
+
+.wishlist-icon {
+  width: 25px;
+  height: 25px;
+  background-color: #f64a69;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+.wishlist-icon:hover,
+.wishlisted {
+  color: #f64a69;
+  background-color: #f4e7e7;
+}
+
+.wishlist-icon i {
+  font-size: 0.75rem;
+}

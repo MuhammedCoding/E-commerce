@@ -1,0 +1,54 @@
+.navbar {
+  background-color: #fff9f3 !important;
+  height: 80px;
+  z-index: 9999;
+}
+
+.active {
+  color: var(--main-color) !important;
+  position: relative;
+}
+.main-links .nav-link:hover {
+  color: var(--main-color) !important;
+}
+
+.main-links .nav-link {
+  position: relative;
+  padding: 0 !important;
+  margin: 0px 10px;
+}
+
+.active::after,
+.main-links .nav-link::after {
+  content: "";
+  width: 0;
+  height: 5px;
+  background-color: var(--main-color);
+  position: absolute;
+  border-radius: 10px;
+  bottom: -10px;
+  left: 0;
+  transition: all 0.5s;
+}
+.active::after,
+.main-links .nav-link:hover:after {
+  width: 80%;
+}
+
+i {
+  font-size: 1.2rem;
+}
+.fa-cart-shopping {
+  position: relative;
+}
+
+.cart-item-count {
+  background-color: var(--main-color);
+  color: white;
+  font-size: 0.625rem;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  top: -15px;
+  right: -10px;
+}

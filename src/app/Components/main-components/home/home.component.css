@@ -1,0 +1,19 @@
+.featured-header {
+  font-weight: 400;
+  color: #3e3e3e;
+}
+
+.item-img {
+  width: fit-content;
+}
+.item-img img {
+  width: 120px;
+  height: 120px;
+}
+.item {
+  background-color: #f5f6f8;
+}
+
+.item-wrapper {
+  flex: 1 1 auto;
+}

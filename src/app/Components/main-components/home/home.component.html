@@ -1,0 +1,89 @@
+<app-loader *ngIf="isProductsLoading"></app-loader>
+
+<div>
+    <app-category-slider id="categories" class="pb-5"></app-category-slider>
+    <app-brand-slider id="brands" class="p-5"></app-brand-slider>
+
+
+
+
+    <section id="procducts" class="py-5">
+        <div class="search-products">
+            <input [(ngModel)]="searchTerm" type="text" placeholder="Search for products ..."
+                class="form-control w-75 mx-auto">
+        </div>
+        <div class="row gy-5 mt-2 mb-1" id="products">
+            <h5 class="h6 featured-header">
+                Take a look at our featured Products !
+            </h5>
+            <div class=" col-sm-6 col-md-4 col-lg-3 product-card "
+                *ngFor=" let product of productsArray | search:searchTerm " @fadeRight>
+                <app-product-card [product]="product"></app-product-card>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="row gx-3">
+            <div class="col-md-4">
+                <div class="item py-4 px-3 rounded-2 h-100">
+                    <div class="container item-wrapper ">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <div class="caption">
+                                    <p class="fw-bolder mb-2 text-main">A community is doing Good</p>
+                                    <p>Commerce is a global online marketplace, where people can buy online</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="item-img">
+                                    <img src="../../../../assets/images/unsplash_bU8TeXhsPcY.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="item py-4 px-3 rounded-2 h-100">
+                    <div class="container item-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <div class="caption">
+                                    <p class="fw-bolder mb-2 text-main">Peace
+                                        of mind</p>
+                                    <p>Privacy is the highest priority of our dedicated team.</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="item-img">
+                                    <img src="../../../../assets/images/unsplash_esRJtEsvJhU.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="item py-4 px-3 rounded-2 h-100">
+                    <div class="container item-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <div class="caption">
+                                    <p class="fw-bolder mb-2 text-main">Support independent
+                                        creators</p>
+                                    <p>Just millions of people selling the things they love.</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="item-img">
+                                    <img src="../../../../assets/images/unsplash_m_7p45JfXQo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,61 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+
+<div class="bg-main-light p-4 my-4 rounded-3" *ngIf="!isLoading">
+    <div class="cart-header d-flex justify-content-between align-items-center">
+        <div class="cart-main-info">
+            <h3>Wishlist</h3>
+        </div>
+    </div>
+    <ng-container *ngIf="products.length">
+        <div *ngFor="let product of products let isLast = last"
+            class="row align-items-center py-5 product justify-content-between" [class.border-bottom]="!isLast">
+            <div class="col-md-3">
+                <div class="product-image rounded-3 overflow-hidden">
+                    <img class="w-100" [src]="product.imageCover" alt="{{product.title}}">
+                </div>
+            </div>
+            <div class="col-md-8 d-flex flex-column">
+                <h2 class="h4 fw-bolder mb-2">
+                    {{product?.title}}
+                </h2>
+                <p class="text-muted py-3">{{product?.description}}</p>
+                <div class="image-logo">
+                    <img class="w-100" src="{{product?.brand?.image}}" alt="">
+                </div>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                    <span class="text-muted fw-bold font-sm">{{product?.price | currency}} </span>
+                    <div>
+                        <i class="fas fa-star rating-color"></i>
+                        <span class="text-muted fw-bold font-sm ms-2">{{product?.ratingsAverage}}</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-between gap-3">
+
+                        <button class="btn bg-main text-white w-100 add-btn" (click)="addToCart(product.id)">
+                            <i class="fa-solid fa-cart-shopping me-2"></i>
+                            <span *ngIf="!isAddLoading"> +Add</span>
+                            <i *ngIf="isAddLoading" class="fa-solid fa-spinner fa-spin"></i>
+                        </button>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoading && !products.length">
+        <div class="text-center my-4 center-elem flex-column">
+            <p>Your Wishlist is empty.</p>
+            <div class="empty-wishlist">
+                <img class="w-100" src="../../../../assets/images/empty-cart.png" alt="">
+            </div>
+        </div>
+
+    </ng-container>
+
+
+</div>

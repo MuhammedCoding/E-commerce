@@ -1,0 +1,16 @@
+.empty-cart {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-checkout {
+  transition: 0.3s;
+}
+.btn-checkout:hover {
+  background-color: white !important;
+  color: var(--main-color) !important;
+}
+
+.product:last-child.product {
+  border-bottom: 0 !important;
+}
