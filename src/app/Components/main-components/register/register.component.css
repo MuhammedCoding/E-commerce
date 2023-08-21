@@ -1,0 +1,19 @@
+form p {
+  margin: 0 !important;
+}
+
+.form-control:focus {
+  border-color: var(--main-color) !important;
+  border: 1px !important;
+  box-shadow: 0 0 0 1px rgba(252, 132, 41, 0.793);
+}
+
+@media (max-width: 992px) {
+  .register-form {
+    width: 100% !important;
+  }
+
+  .image-cover {
+    display: none;
+  }
+}

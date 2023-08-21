@@ -1,6 +1,6 @@
 <div class="card product h-100">
     <div class="card-body">
-        <span class="ms-auto mb-3 wishlist-icon center-elem" (click)="addToWishList(product.id)">
+        <span class="ms-auto mb-3 wishlist-icon center-elem cursor-pointer" (click)="addToWishList(product.id)">
             <i class="fa-solid fa-heart"></i>
         </span>
         <a [routerLink]="['/productdetails',product.id]">

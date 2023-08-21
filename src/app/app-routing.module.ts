@@ -11,7 +11,8 @@ import { CheckoutComponent } from './Components/main-components/checkout/checkou
 import { OrdersComponent } from './Components/main-components/orders/orders.component';
 import { ProfileComponent } from './Components/main-components/profile/profile.component';
 import { CategoryDetailsComponent } from './Components/main-components/category-details/category-details.component';
-import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { WishlistComponent } from './Components/main-components/wishlist/wishlist.component';
+import { ForgetPasswordComponent } from './Components/main-components/forget-password/forget-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -58,6 +59,10 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   {
+    path: 'forget-password',
+    component: ForgetPasswordComponent,
+  },
+  {
     path: 'register',
     component: RegisterComponent,
   },
@@ -68,6 +73,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       useHash: true,
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 64],
     }),
   ],
   exports: [RouterModule],

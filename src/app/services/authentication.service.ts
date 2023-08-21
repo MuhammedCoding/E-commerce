@@ -20,4 +20,11 @@ export class AuthenticationService {
       userData
     );
   }
+
+  forgetPassword(userData: object): Observable<any> {
+    return this._httpClient.post(
+      'https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords',
+      userData
+    );
+  }
 }
