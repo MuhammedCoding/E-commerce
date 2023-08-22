@@ -3,23 +3,7 @@
 <div>
     <app-category-slider id="categories" class="pb-5"></app-category-slider>
 
-    <app-brand-slider id="brands" class="p-5"></app-brand-slider>
-
-    <section id="products" class="py-5">
-        <div class="search-products">
-            <input [(ngModel)]="searchTerm" type="text" placeholder="Search for products ..."
-                class="form-control w-75 mx-auto">
-        </div>
-        <div class="row gy-5 mt-2 mb-1">
-            <h5 class="h6 featured-header">
-                Take a look at our featured Products !
-            </h5>
-            <div class=" col-sm-6 col-md-4 col-lg-3  product-card "
-                *ngFor=" let product of productsArray | search:searchTerm " @fadeRight>
-                <app-product-card [product]="product"></app-product-card>
-            </div>
-        </div>
-    </section>
+    <app-brand-slider id="brands" class="p-5 mohamed"></app-brand-slider>
 
     <section id="about" class="py-5">
         <div class="row gx-3">
@@ -84,4 +68,23 @@
             </div>
         </div>
     </section>
+
+    <section id="products" class="py-5">
+        <div class="search-products">
+            <input [(ngModel)]="searchTerm" type="text" placeholder="Search for products ..."
+                class="form-control w-75 mx-auto">
+        </div>
+        <div class="row gy-5 mt-2 mb-1">
+            <h5 class="h6 featured-header">
+                Take a look at our featured Products !
+            </h5>
+            <div class=" col-sm-6 col-md-4 col-lg-3  product-card "
+                *ngFor=" let product of productsArray | search:searchTerm "
+                [@staggeredFadeRightAnimation]="productsArray.length">
+                <app-product-card [product]="product"></app-product-card>
+            </div>
+        </div>
+    </section>
+
+
 </div>

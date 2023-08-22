@@ -4,6 +4,8 @@ import {
   FormControl,
   Validators,
   FormBuilder,
+  ValidatorFn,
+  ValidationErrors,
 } from '@angular/forms';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { Route, Router } from '@angular/router';
@@ -61,7 +63,7 @@ export class RegisterComponent {
           null,
           [
             Validators.required,
-            Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+            Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[\x20-\x7E]{8,}$/),
           ],
         ],
         rePassword: [
@@ -109,16 +111,18 @@ export class RegisterComponent {
     }
   }
 
-  passwordMatchValidator(password: string, rePassword: string) {
-    return (formGroup: FormGroup) => {
+  passwordMatchValidator(password: string, rePassword: string): Validators {
+    return (formGroup: FormGroup): ValidationErrors | null => {
       const passwordControl = formGroup.controls[password];
       const rePassControl = formGroup.controls[rePassword];
 
-      if (passwordControl.value === rePassControl.value) return;
-
-      rePassControl.setErrors({
+      if (passwordControl.value === rePassControl.value) return null;
+      return {
         passwordMatch: 'Confirm password must match with password',
-      });
+      };
+      // rePassControl.setErrors({
+      //   passwordMatch: 'Confirm password must match with password',
+      // });
     };
   }
 }
