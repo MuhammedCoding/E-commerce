@@ -11,7 +11,15 @@ import {
   slideInAnimation,
   staggeredFadeRightAnimation,
 } from '../../../animations/animations';
-import { trigger, transition, useAnimation } from '@angular/animations';
+import {
+  trigger,
+  transition,
+  useAnimation,
+  query,
+  style,
+  animate,
+  stagger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-home',
@@ -29,9 +37,21 @@ import { trigger, transition, useAnimation } from '@angular/animations';
     trigger('fadeRight', [
       transition(':enter', [useAnimation(fadeRightAnimation)]),
     ]),
+    // trigger('staggeredFadeRight', [
+    //   transition(':enter', [
+    //     useAnimation(staggeredFadeRightAnimation, { params: { time: '1s' } }),
+    //   ]),
+    // ]),
     trigger('staggeredFadeRight', [
-      transition(':enter', [
-        useAnimation(staggeredFadeRightAnimation, { params: { time: '1s' } }),
+      transition('* => *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            stagger(600, [animate('0.5s', style({ opacity: 1 }))]),
+          ],
+          { optional: true }
+        ),
       ]),
     ]),
 

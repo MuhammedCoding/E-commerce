@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 main-links mb-lg-0" *ngIf="isLogin">
+            <ul class="navbar-nav me-auto mb-2 main-links mb-lg-0 " *ngIf="isLogin">
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="home">Home</a>
                 </li>
@@ -22,7 +22,7 @@
                 </li>
 
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
                 <li *ngIf="isLogin" class="nav-item">
                     <a class="nav-link position-relative" aria-current="page" routerLink="cart">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -32,8 +32,11 @@
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                    <a href=""> <i class="fab mx-2 fa-instagram"></i> </a>
-                    <a href=""> <i class="fab mx-2 fa-facebook"></i> </a>
+                    <a href="https://www.linkedin.com/in/mohamed-ahmed-416184229/"> <i class="fab mx-2 fa-linkedin"></i>
+                    </a>
+                    <a href="https://web.facebook.com/mido.elbarcelony.7"> <i class="fab mx-2 fa-facebook"></i> </a>
+
+                    <a href="https://github.com/MuhammedCoding"> <i class="fab mx-2 fa-github"></i> </a>
                 </li>
                 <li *ngIf="isLogin" class="nav-item">
                     <a (click)="logout()" class="nav-link" aria-current="page" routerLink="login">Sign out</a>

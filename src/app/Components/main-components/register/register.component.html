@@ -49,13 +49,12 @@
 
                     <div class="form-floating">
                         <input type="password" class="form-control mb-2" formControlName="rePassword" id="rePassword">
-                        <label for="rePassword">rePassword:</label>
+                        <label for="rePassword">Confirm Password:</label>
                     </div>
 
-                    <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched"
-                        class="alert alert-danger p-2">
-                        <p *ngIf="registerForm.get('rePassword')?.getError('required')">Confirm Password is Required</p>
-                        <p *ngIf="registerForm.get('rePassword')?.getError('passwordMatch')">Confirm Password must match
+                    <div *ngIf="registerForm?.errors" class="alert alert-danger p-2">
+                        <!-- <p *ngIf="registerForm.get('rePassword')?.getError('required')">Confirm Password is Required</p> -->
+                        <p>Confirm Password must match
                             with
                             password</p>
                     </div>
@@ -78,6 +77,7 @@
 
 
                 </form>
+                <pre>{{registerForm.errors | json}}</pre>
 
                 <div *ngIf="errorMsg" class="alert alert-danger p-2 mt-2">
                     {{errorMsg}}
@@ -88,6 +88,6 @@
     </div>
 
     <div class="image-cover overflow-hidden w-50">
-        <img class="w-100 vh-100" src="../../../../assets/images/slate-small-shopping-cart.jpg" alt="">
+        <img class="w-100 vh-100" src="../../../../assets/images/slate-small-shopping-cart-min.jpg" alt="shopping-img">
     </div>
 </div>

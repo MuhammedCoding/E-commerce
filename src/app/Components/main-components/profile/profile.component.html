@@ -1,1 +1,43 @@
-<p>profile works!</p>
+<div class="reset-password shadow-lg p-5 w-50 text-center bg-main-light mx-auto">
+    <h3 class="h1 mb-4"> Reset Password </h3>
+    <form [formGroup]="passwordForm" (ngSubmit)="handleNewPassword(passwordForm)">
+        <div class="form-floating">
+            <input type="password" formControlName="currentPassword" class="form-control">
+            <label for="currentPassword"> Current Password </label>
+        </div>
+        <div *ngIf="passwordForm.get('currentPassword')?.errors && passwordForm.get('currentPassword')?.touched"
+            class="alert alert-danger p-2">
+            <p class="m-0" *ngIf="passwordForm.get('currentPassword')?.getError('required')">Current Password is
+                Required</p>
+        </div>
+
+        <div class="form-floating my-4">
+            <input type="password" formControlName="password" class="form-control">
+            <label for="password"> Password </label>
+        </div>
+
+        <div *ngIf="passwordForm.get('password')?.errors && passwordForm.get('password')?.touched"
+            class="alert alert-danger p-2">
+            <p *ngIf="passwordForm.get('password')?.getError('pattern')">Password must contain at least one
+                Uppercase
+                letter, one Lowercase letter , minimu length is 8</p>
+            <p *ngIf="passwordForm.get('password')?.getError('required')">password is Required</p>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" formControlName="rePassword" class="form-control">
+            <label for="rePassword"> Confirm Password </label>
+        </div>
+        <div *ngIf="passwordForm.get('rePassword')?.errors && passwordForm.get('rePassword')?.touched"
+            class="alert alert-danger p-2">
+            <p *ngIf="passwordForm.get('rePassword')?.getError('required')">Confirm Password is Required</p>
+            <p *ngIf="passwordForm.get('rePassword')?.getError('passwordMatch')">Confirm Password must match
+                with the new
+                password</p>
+        </div>
+        <button [disabled]="passwordForm.invalid" type="submit" class="btn bg-main text-white mt-4">
+            <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading">Change Your Password</span>
+        </button>
+    </form>
+</div>
