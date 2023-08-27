@@ -1,0 +1,18 @@
+<div class="category-slider" *ngIf="!isLoading ">
+    <h6 class=" slider-header pb-3">
+        Discover our awesome categories
+    </h6>
+    <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let category of categoriesArray">
+            <ng-template carouselSlide>
+                <a class="cursor-pointer" [routerLink]="['/pages/categorydetails', category._id]"
+                    [@fadeIn]="!isLoading">
+                    <div class="category-img">
+                        <img [src]="category.image" [alt]="category.name">
+                    </div>
+                    <h3 class="h6 mt-3 text-center">{{ category.name }}</h3>
+                </a>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

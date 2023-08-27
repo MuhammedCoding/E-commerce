@@ -1,0 +1,19 @@
+.btn-register {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  transition: all 0.4s;
+}
+
+.btn-register:hover {
+  color: #fff;
+  background-color: var(--main-color);
+}
+@media (max-width: 992px) {
+  .login-form {
+    width: 100% !important;
+  }
+
+  .image-cover {
+    display: none;
+  }
+}

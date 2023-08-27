@@ -82,3 +82,8 @@ input:focus-visible {
   border: 1px !important;
   box-shadow: 0 0 0 1px rgba(252, 132, 41, 0.793);
 }
+
+img,
+.image-cover {
+  min-height: 100%;
+}

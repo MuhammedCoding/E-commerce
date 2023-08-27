@@ -1,0 +1,6 @@
+@media (max-width: 991.98px) {
+  .verify-password,
+  .reset-password {
+    width: 90% !important;
+  }
+}

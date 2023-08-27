@@ -1,0 +1,92 @@
+<app-loader *ngIf="isProductsLoading"></app-loader>
+
+<div>
+    <app-category-slider id="categories" [attr.data-aos]="'fade-right'" data-aos-duration="3000"
+        class="pb-5"></app-category-slider>
+
+    <app-brand-slider id="brands" class="p-5 mohamed">
+    </app-brand-slider>
+
+    <section id="products" class="py-5">
+        <div class="search-products bg-main-light mx-auto" [ngClass]="{ 'active': isActive }">
+            <i (click)="toggleActive()" class=" cursor-pointer fas fa-magnifying-glass position-absolute text-main"></i>
+            <input [(ngModel)]="searchTerm" type="text" placeholder="Search for products ..."
+                class="input w-75 mx-auto bg-transparent border-0">
+        </div>
+        <div class="row gy-5 mt-2 mb-1">
+            <h5 class="h6 featured-header">
+                Take a look at our featured Products !
+            </h5>
+            <ng-container *ngFor="let product of productsArray | search:searchTerm ; let i = index">
+                <div class="col-sm-6 col-md-4 col-lg-3 product-card" data-aos="fade-right" data-aos-delay="i*300">
+                    <app-product-card [product]="product"></app-product-card>
+                </div>
+            </ng-container>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="row gx-3">
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <div class="item py-4 px-3 rounded-2 h-100 d-flex">
+                    <div class="container item-wrapper ">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-8">
+                                <div class="caption">
+                                    <p class="fw-bolder mb-2 text-main">A community is doing Good</p>
+                                    <p>Commerce is a global online marketplace, where people can buy online</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="item-img ms-auto">
+                                    <img src="../../../../../../assets/images/unsplash_bU8TeXhsPcY.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <div class="item py-4 px-3 rounded-2 h-100 d-flex">
+                    <div class="container item-wrapper">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-8">
+                                <div class="caption">
+                                    <p class="fw-bolder mb-2 text-main">Peace
+                                        of mind</p>
+                                    <p>Privacy is the highest priority of our dedicated team.</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="item-img ms-auto">
+                                    <img src="../../../../../../assets/images/unsplash_esRJtEsvJhU.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-3 mb-lg-0">
+                <div class="item py-4 px-3 rounded-2 h-100 d-flex">
+                    <div class="container item-wrapper">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-8">
+                                <div class="caption">
+                                    <p class="fw-bolder mb-2 text-main">Support independent
+                                        creators</p>
+                                    <p>Just millions of people selling the things they love.</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="item-img ms-auto">
+                                    <img src="../../../../../../assets/images/unsplash_m_7p45JfXQo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md py-3">
+    <div class="container-fluid">
+        <a class="navbar-brand text-main fw-bold" href="#"><img src="../../../../../../assets/images/E-commerce.png"
+                alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 main-links mb-lg-0 " *ngIf="isLogin">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="wishlist">Wishlist</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav  ms-auto mb-2 mb-lg-0">
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class=" mx-3 position-relative" aria-current="page" routerLink="cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-item-count position-absolute center-elem" *ngIf="!isCartCountLoading">{{
+                            cartItemCount
+                            }}</span>
+                        <i class="cart-item-count position-absolute center-elem fa-solid fa-spinner fa-spin"
+                            *ngIf="isCartCountLoading"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="https://www.linkedin.com/in/mohamed-ahmed-416184229/"> <i class="fab mx-2 fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/MuhammedCoding"> <i class="fab mx-2 fa-github"></i> </a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a aria-current="page" routerLink="profile">
+                        <i class="fa-regular fa-user mx-2"></i>
+                    </a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a (click)="logout()" class="nav-link" aria-current="page" routerLink="/authentication/login">Sign
+                        out</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="login">Login</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,30 @@
+form p {
+  margin: 0 !important;
+}
+
+.form-control:focus {
+  border-color: var(--main-color) !important;
+  border: 1px !important;
+  box-shadow: 0 0 0 1px rgba(252, 132, 41, 0.793);
+}
+
+.btn-login {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  transition: all 0.4s;
+}
+
+.btn-login:hover {
+  color: #fff;
+  background-color: var(--main-color);
+}
+
+@media (max-width: 992px) {
+  .register-form {
+    width: 100% !important;
+  }
+
+  .image-cover {
+    display: none;
+  }
+}

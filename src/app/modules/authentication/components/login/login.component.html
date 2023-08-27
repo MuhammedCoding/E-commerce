@@ -1,0 +1,63 @@
+<div class="d-flex" @fadeIn>
+
+    <div class="center-elem w-50 login-form min-vh-100 bg-main-light">
+
+        <div class="p-5 w-100 login-form-container">
+            <div class="header text-center mx-auto">
+                <h1 class="text-main">
+                    E-Commerce Shopping Application
+                </h1>
+                <p class="text-muted mt-3">Sign in and discover our awesome products with offers !
+                </p>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="handleLogin(loginForm)">
+
+                <div class="form-floating">
+                    <input type="email" formControlName="email" class="form-control mb-2">
+                    <label for="email">Email</label>
+                </div>
+
+                <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+                    class="alert alert-danger p-2">
+                    <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0">
+                        Email is Required
+                    </p>
+                    <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0">
+                        Invalid Email Format
+                    </p>
+                </div>
+
+                <div class="form-floating">
+
+                    <input type="password" formControlName="password" id="password" class="form-control mb-2">
+                    <label for="password">Password</label>
+                </div>
+                <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
+                    class="alert alert-danger p-2">
+                    <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0">
+                        password is Required
+                    </p>
+                </div>
+                <button [disabled]="loginForm.invalid" type="submit" class="btn bg-main text-white">
+                    <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+                    <span *ngIf="!isLoading">Login</span>
+                </button>
+            </form>
+
+            <div class=" center-elem register">
+                <span class="d-inline-block">Don't have an account?
+                    <a class="btn rounded-2 btn-register ms-2" routerLink="/authentication/register">Sign Up</a>
+                </span>
+            </div>
+            <div *ngIf="errorMsg" class="alert alert-danger mt-2">
+                {{errorMsg}}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="image-cover overflow-hidden w-50">
+        <img class="w-100 vh-100" src="../../../../../assets/images/shopping-cart-with-bag-min.jpg" alt="shopping-img">
+    </div>
+
+</div>

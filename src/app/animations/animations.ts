@@ -9,65 +9,37 @@ import {
   trigger,
 } from '@angular/animations';
 
-export const fadeInAnimation = animation([
-  style({ opacity: 0 }),
-  animate('{{time}} ease-in-out', style({ opacity: 1 })),
+export const fadeInAnimation = trigger('fadeIn', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('2s ease-in-out', style({ opacity: 1 })),
+  ]),
+  transition(':leave', [animate('2s ease-in-out', style({ opacity: 0 }))]),
 ]);
 
-export const fadeOutAnimation = animation([
-  animate('1s ease-in-out', style({ opacity: 0 })),
+export const fadeOutAnimation = trigger('fadeOut', [
+  transition('* => void', [animate('1s ease-in-out', style({ opacity: 0 }))]),
 ]);
 
-export const fadeRightAnimation = animation([
-  style({ opacity: 0, transform: 'translateX(-30%)' }),
-  animate('4s ease-in-out', style({ opacity: 1, transform: 'translateX(0)' })),
+export const fadeRightAnimation = trigger('fadeRight', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateX(-30%)' }),
+    animate(
+      '4s ease-in-out',
+      style({ opacity: 1, transform: 'translateX(0)' })
+    ),
+  ]),
+  transition(':leave', [
+    animate(
+      '4s ease-in-out',
+      style({ opacity: 0, transform: 'translateX(30%)' })
+    ),
+  ]),
 ]);
-export const staggeredFadeRightAnimation = animation([
-  query(
-    ':enter',
-    [
-      style({ opacity: 0, transform: 'translateX(-20px)' }),
-      stagger('1s', [
-        animate(
-          '{{ time }} ease-in-out',
-          style({ opacity: 1, transform: 'translateX(0)' })
-        ),
-      ]),
-    ],
-    { optional: true }
-  ),
-]);
-export const slideInAnimation = trigger('routeAnimations', [
+
+export const fadeRoutingAnimations = trigger('routeAnimations', [
   transition('* <=> *', [
     style({ opacity: 0 }),
     animate('1s', style({ opacity: 1 })),
   ]),
 ]);
-
-// export const fadeInRouteAnimation = trigger('routeAnimations');
-
-/* FOR DIRECTIONS */
-function slideTo(direction: string) {
-  const optional = { optional: true };
-  return [
-    query(
-      ':enter, :leave',
-      [
-        style({
-          position: 'absolute',
-          width: '100%',
-        }),
-      ],
-      optional
-    ),
-    query(':enter', [style({ [direction]: '-100%' })]),
-    group([
-      query(
-        ':leave',
-        [animate('600ms ease', style({ [direction]: '100%' }))],
-        optional
-      ),
-      query(':enter', [animate('600ms ease', style({ [direction]: '0%' }))]),
-    ]),
-  ];
-}

@@ -1,0 +1,140 @@
+<div class="d-flex" @fadeIn>
+    <div class="center-elem w-50 register-form min-vh-100 bg-main-light">
+        <div class="p-5 w-100 login-form-container">
+            <div class="header text-center mx-auto">
+                <h1 class="text-main">
+                    E-Commerce Shopping Application
+                </h1>
+                <p class="text-muted mt-3">Join us now and be a part of our wonderful story discover our awesome
+                    products with offers!
+                </p>
+                <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm">
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control mb-2" formControlName="name" id="name">
+                        <label for="name">name:</label>
+                    </div>
+                    <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched"
+                        class="alert alert-danger p-2">
+                        <p *ngIf="registerForm.get('name')?.getError('minlength')">Name must have 2 characters at least
+                        </p>
+                        <p *ngIf="registerForm.get('name')?.getError('maxlength')">Name must have 20 characters at Most
+                        </p>
+                        <p *ngIf="registerForm.get('name')?.getError('required')">Name is Required</p>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="email" class="form-control mb-2" formControlName="email" id="email">
+                        <label for="email">email:</label>
+                    </div>
+
+                    <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched"
+                        class="alert alert-danger p-2">
+                        <p *ngIf="registerForm.get('email')?.getError('email')">Invalid Email Format</p>
+                        <p *ngIf="registerForm.get('email')?.getError('required')">Email is Required</p>
+                    </div>
+
+                    <div class="form-check form-switch text-start">
+                        <input class="form-check-input" type="checkbox" formControlName="usePassword" id="usePassword">
+                        <label class="form-check-label" for="usePassword">Use Password</label>
+                    </div>
+
+                    <div *ngIf="registerForm.get('usePassword')?.value">
+                        <div class=" form-floating">
+                            <input type="password" class="form-control mb-2" formControlName="password" id="password">
+                            <label for="password">password:</label>
+                        </div>
+                        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
+                            class="alert alert-danger p-2">
+                            <p *ngIf="registerForm.get('password')?.getError('pattern')">Password must contain at least
+                                one
+                                Uppercase
+                                letter, one Lowercase letter , minimu length is 8</p>
+                            <p *ngIf="registerForm.get('password')?.getError('required')">password is Required</p>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control mb-2" formControlName="rePassword"
+                                id="rePassword">
+                            <label for="rePassword">Confirm Password:</label>
+                        </div>
+
+                        <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched"
+                            class="alert alert-danger p-2">
+                            <p *ngIf="registerForm.get('rePassword')?.getError('required')">Confirm Password is Required
+                            </p>
+                            <p *ngIf="registerForm.get('rePassword')?.getError('passwordMatch')">Confirm Password must
+                                match
+                                with
+                                password</p>
+                        </div>
+
+                    </div>
+
+                    <div *ngIf="!registerForm.get('usePassword')?.value">
+                        <div class=" form-floating">
+                            <input type="password" class="form-control mb-2" formControlName="passportNum"
+                                id="passport">
+                            <label for="passport">passportNum:</label>
+                        </div>
+                        <div *ngIf="registerForm.get('passportNum')?.errors && registerForm.get('passportNum')?.touched"
+                            class="alert alert-danger p-2">
+                            <p *ngIf="registerForm.get('passportNum')?.getError('required')">Passport number is Required
+                            </p>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control mb-2" formControlName="rePassportNum"
+                                id="rePassportNum">
+                            <label for="rePassportNum">Confirm Passport:</label>
+                        </div>
+
+                        <div *ngIf="registerForm.get('rePassportNum')?.errors && registerForm.get('rePassportNum')?.touched"
+                            class="alert alert-danger p-2">
+                            <p *ngIf="registerForm.get('rePassportNum')?.getError('required')">Confirm Passport is
+                                Required
+                            </p>
+                            <p *ngIf="registerForm.get('rePassportNum')?.getError('passwordMatch')">Confirm Passport
+                                must match with Passport</p>
+                        </div>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="tel" class="form-control mb-2" formControlName="phone" id="phone">
+                        <label for="phone">phone:</label>
+                    </div>
+                    <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched"
+                        class="alert alert-danger p-2">
+                        <p *ngIf="registerForm.get('phone')?.getError('pattern')">Please enter egyptian phone number</p>
+                        <p *ngIf="registerForm.get('phone')?.getError('required')">Phone number is Required</p>
+                    </div>
+                    <div formArrayName='permissions' class="text-start my-3">
+                        <span class="d-block mb-2  text-main">Permissions:</span>
+                        <div class="form-check" *ngFor="let permission of permissions.controls let i = index">
+                            <input class="form-check-input" [formControlName]="i" type="checkbox" id="{{i}}">
+                            <label class="form-check-label" for="{{i}}">
+                                {{permissionsArray[i]}}
+                            </label>
+                        </div>
+                    </div>
+                    <button [disabled]="registerForm.invalid" type="submit" class="btn bg-main text-white d-block">
+                        <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
+                        <span *ngIf="!isLoading">Register</span>
+                    </button>
+                </form>
+
+                <div class=" center-elem login">
+                    <span class="d-inline-block">Already have an account?
+                        <a class="btn rounded-2 btn-login ms-2" routerLink="/authentication/login">Login</a>
+                    </span>
+                </div>
+                <div *ngIf="errorMsg" class="alert alert-danger p-2 mt-2">
+                    {{errorMsg}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="image-cover overflow-hidden w-50">
+        <img class="w-100" src="../../../../../assets/images/slate-small-shopping-cart-min.jpg" alt="shopping-img">
+    </div>
+</div>

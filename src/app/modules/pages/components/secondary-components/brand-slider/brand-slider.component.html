@@ -1,0 +1,17 @@
+<div class="brands-slider" *ngIf="!isLoading ">
+    <h6 class=" slider-header">
+        Find brands you'll love. Support independent sellers.
+    </h6>
+    <owl-carousel-o [options]=" customOptions">
+        <ng-container *ngFor="let brand of brandsArray">
+            <ng-template carouselSlide>
+                <a [@fadeIn]="!isLoading">
+                    <div class="category-img">
+                        <img [src]="brand.image" [alt]="brand.name">
+                    </div>
+                    <h3 class="h6 mt-3 text-center">{{brand.name}}</h3>
+                </a>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

@@ -2,32 +2,32 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Components/main-components/home/home.component';
-import { AboutComponent } from './Components/main-components/about/about.component';
-import { CartComponent } from './Components/main-components/cart/cart.component';
-import { FooterComponent } from './Components/main-components/footer/footer.component';
-import { LoginComponent } from './Components/main-components/login/login.component';
-import { NavbarComponent } from './Components/main-components/navbar/navbar.component';
-import { NotFoundComponent } from './Components/secondary-components/not-found/not-found.component';
-import { RegisterComponent } from './Components/main-components/register/register.component';
+import { HomeComponent } from './modules/pages/components/main-components/home/home.component';
+import { AboutComponent } from './modules/pages/components/main-components/about/about.component';
+import { CartComponent } from './modules/pages/components/main-components/cart/cart.component';
+import { FooterComponent } from './modules/pages/components/main-components/footer/footer.component';
+import { LoginComponent } from './modules/authentication/components/login/login.component';
+import { NavbarComponent } from './modules/pages/components/main-components/navbar/navbar.component';
+import { NotFoundComponent } from './modules/pages/components/secondary-components/not-found/not-found.component';
+import { RegisterComponent } from './modules/authentication/components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductCardComponent } from './Components/secondary-components/product-card/product-card.component';
-import { ProductDetailsComponent } from './Components/main-components/product-details/product-details.component';
+import { ProductCardComponent } from './modules/pages/components/secondary-components/product-card/product-card.component';
+import { ProductDetailsComponent } from './modules/pages/components/main-components/product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { CategorySliderComponent } from './Components/secondary-components/category-slider/category-slider.component';
-import { BrandSliderComponent } from './Components/secondary-components/brand-slider/brand-slider.component';
+import { CategorySliderComponent } from './modules/pages/components/secondary-components/category-slider/category-slider.component';
+import { BrandSliderComponent } from './modules/pages/components/secondary-components/brand-slider/brand-slider.component';
 import { SearchPipe } from './Pipes/search.pipe';
-import { CheckoutComponent } from './Components/main-components/checkout/checkout.component';
-import { OrdersComponent } from './Components/main-components/orders/orders.component';
-import { ProfileComponent } from './Components/main-components/profile/profile.component';
-import { CategoryDetailsComponent } from './Components/main-components/category-details/category-details.component';
+import { CheckoutComponent } from './modules/pages/components/main-components/checkout/checkout.component';
+import { OrdersComponent } from './modules/pages/components/main-components/orders/orders.component';
+import { ProfileComponent } from './modules/pages/components/main-components/profile/profile.component';
+import { CategoryDetailsComponent } from './modules/pages/components/main-components/category-details/category-details.component';
 import { ToastrModule } from 'ngx-toastr';
-import { LoaderComponent } from './Components/secondary-components/loader/loader.component';
-import { WishlistComponent } from './Components/main-components/wishlist/wishlist.component';
-import { ForgetPasswordComponent } from './Components/main-components/forget-password/forget-password.component';
-import { ResetNewPasswordComponent } from './Components/secondary-components/reset-new-password/reset-new-password.component';
+import { LoaderComponent } from './modules/pages/components/secondary-components/loader/loader.component';
+import { WishlistComponent } from './modules/pages/components/main-components/wishlist/wishlist.component';
+import { ForgetPasswordComponent } from './modules/pages/components/main-components/forget-password/forget-password.component';
+import { ResetNewPasswordComponent } from './modules/pages/components/secondary-components/reset-new-password/reset-new-password.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +35,7 @@ import { ResetNewPasswordComponent } from './Components/secondary-components/res
     HomeComponent,
     AboutComponent,
     CartComponent,
-    FooterComponent,
     LoginComponent,
-    NavbarComponent,
     NotFoundComponent,
     RegisterComponent,
     ProductCardComponent,
@@ -67,4 +65,6 @@ import { ResetNewPasswordComponent } from './Components/secondary-components/res
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}
