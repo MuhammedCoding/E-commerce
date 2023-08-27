@@ -9,7 +9,6 @@ import { WishlistComponent } from './components/main-components/wishlist/wishlis
 import { ProfileComponent } from './components/main-components/profile/profile.component';
 import { ProductDetailsComponent } from './components/main-components/product-details/product-details.component';
 import { CategoryDetailsComponent } from './components/main-components/category-details/category-details.component';
-import { ForgetPasswordComponent } from './components/main-components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/secondary-components/not-found/not-found.component';
 import { PagesComponent } from './pages.component';
 
@@ -58,10 +57,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: CategoryDetailsComponent,
       },
-      {
-        path: 'forget-password',
-        component: ForgetPasswordComponent,
-      },
+
       { path: '**', component: NotFoundComponent },
     ],
   },

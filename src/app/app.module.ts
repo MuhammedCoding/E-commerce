@@ -26,8 +26,6 @@ import { CategoryDetailsComponent } from './modules/pages/components/main-compon
 import { ToastrModule } from 'ngx-toastr';
 import { LoaderComponent } from './modules/pages/components/secondary-components/loader/loader.component';
 import { WishlistComponent } from './modules/pages/components/main-components/wishlist/wishlist.component';
-import { ForgetPasswordComponent } from './modules/pages/components/main-components/forget-password/forget-password.component';
-import { ResetNewPasswordComponent } from './modules/pages/components/secondary-components/reset-new-password/reset-new-password.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +47,6 @@ import { ResetNewPasswordComponent } from './modules/pages/components/secondary-
     CategoryDetailsComponent,
     LoaderComponent,
     WishlistComponent,
-    ForgetPasswordComponent,
-    ResetNewPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +61,4 @@ import { ResetNewPasswordComponent } from './modules/pages/components/secondary-
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-
-}
+export class AppModule {}

@@ -21,7 +21,8 @@
                 <li *ngIf="isLogin" class="nav-item">
                     <a class=" mx-3 position-relative" aria-current="page" routerLink="cart">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <span class="cart-item-count position-absolute center-elem" *ngIf="!isCartCountLoading">{{
+                        <span class="cart-item-count position-absolute center-elem"
+                            *ngIf="!isCartCountLoading && cartItemCount>0">{{
                             cartItemCount
                             }}</span>
                         <i class="cart-item-count position-absolute center-elem fa-solid fa-spinner fa-spin"
