@@ -8,7 +8,7 @@
         </div>
     </div>
     <ng-container *ngIf="products.length">
-        <div *ngFor="let product of products let isLast = last" @fadeIn
+        <div *ngFor="let product of products let isLast = last"
             class="row align-items-center py-5 product justify-content-between" [class.border-bottom]="!isLast">
             <div class="col-md-3">
                 <div class="product-image rounded-3 overflow-hidden">
@@ -16,9 +16,16 @@
                 </div>
             </div>
             <div class="col-md-8 d-flex flex-column">
-                <h2 class="h4 fw-bolder mb-2">
-                    {{product?.title}}
-                </h2>
+                <div class="d-flex justify-content-between">
+                    <h2 class="h4 fw-bolder mb-2">
+                        {{product?.title}}
+                    </h2>
+                    <button (click)="deleteProductFromWishlist(product.id)" class="btn m-0 p-0">
+                        <i *ngIf="!loadingProductRemoval[product.id]" class=" text-main fa-regular fa-trash-can"></i>
+                        <span *ngIf="!loadingProductRemoval[product.id]" class="ms-2">Remove</span>
+                        <i *ngIf="loadingProductRemoval[product.id]" class="fa-solid fa-spinner fa-spin text-main"></i>
+                    </button>
+                </div>
                 <p class="text-muted py-3">{{product?.description}}</p>
                 <div class="image-logo">
                     <img class="w-100" src="{{product?.brand?.image}}" alt="">
@@ -32,14 +39,11 @@
                 </div>
                 <div>
                     <div class="d-flex justify-content-between gap-3">
-
                         <button class="btn bg-main text-white w-100 add-btn" (click)="addToCart(product.id)">
                             <i class="fa-solid fa-cart-shopping me-2"></i>
                             <span *ngIf="!isAddLoading"> +Add</span>
                             <i *ngIf="isAddLoading" class="fa-solid fa-spinner fa-spin"></i>
                         </button>
-
-
                     </div>
                 </div>
 
