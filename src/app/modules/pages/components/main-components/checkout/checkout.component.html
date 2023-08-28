@@ -1,9 +1,13 @@
-<div class="w-50 mx-auto my-5">
+<div class="checkout-form  shadow-lg p-5 w-50 text-center bg-main-light mx-auto" @fadeIn>
+
+    <h3 class="h1 mb-4"> Shipping Details </h3>
+
     <form [formGroup]="shippingForm" (ngSubmit)="handleSubmit(shippingForm)">
 
-        <label for="Address"></label>
-        <textarea type="text" class="form-control mb-2" formControlName="details" id="details"
-            placeholder="Enter Your Adderss ..."> </textarea>
+        <div class="form-floating">
+            <textarea type="text" class="form-control mb-2" formControlName="details" id="details"> </textarea>
+            <label for="Address">address</label>
+        </div>
 
         <div *ngIf="shippingForm.get('details')?.errors && shippingForm.get('details')?.touched"
             class="alert alert-danger">
@@ -11,17 +15,21 @@
                 Adderss is Required
             </p>
         </div>
-        <label for="phone"></label>
-        <input type="text" class="form-control mb-2" formControlName="phone" id="phone" placeholder="Enter your phone">
-
-        <div *ngIf="shippingForm.get('phone')?.errors && shippingForm.get('phone')?.touched" class="alert alert-danger">
-            <p *ngIf="shippingForm.get('phone')?.getError('required')">
-                Phone is Required
-            </p>
+        <div class="form-floating">
+            <input type="tel" class="form-control mb-2" formControlName="phone" id="phone">
+            <label for="phone">phone:</label>
         </div>
 
-        <label for="city"></label>
-        <input type="text" class="form-control mb-2" formControlName="city" id="city" placeholder="Enter your City">
+        <div *ngIf="shippingForm.get('phone')?.errors && shippingForm.get('phone')?.touched"
+            class="alert alert-danger p-2">
+            <p *ngIf="shippingForm.get('phone')?.getError('pattern')">Please enter egyptian phone number</p>
+            <p *ngIf="shippingForm.get('phone')?.getError('required')">Phone number is Required</p>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control mb-2" formControlName="city" id="city">
+            <label for="city">city:</label>
+        </div>
 
         <div *ngIf="shippingForm.get('city')?.errors && shippingForm.get('city')?.touched" class="alert alert-danger">
             <p *ngIf="shippingForm.get('city')?.getError('required')">
@@ -29,7 +37,7 @@
             </p>
         </div>
 
-        <button [disabled]="shippingForm.invalid" type="submit" class="btn btn-success">
+        <button [disabled]="shippingForm.invalid" type="submit" class="btn bg-main btn-pay text-white">
             <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i>
             <span *ngIf="!isLoading">Pay Online</span>
         </button>

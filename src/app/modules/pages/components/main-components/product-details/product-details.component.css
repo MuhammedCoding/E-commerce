@@ -1,0 +1,7 @@
+.brand-image {
+  width: 100px;
+}
+
+.brand-image img {
+  object-fit: cover;
+}
